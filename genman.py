@@ -147,17 +147,17 @@ tbird["sources"] = tbirdsrc
 mdles.append(tbird)
 
 # Define the basic structure
-data = {}
-data["app-id"] = "org.mozilla.Thunderbird"
-data["runtime"] = gnome_runtime
-data["sdk"] = "org.gnome.Sdk"
-data["command"] = "thunderbird"
-data["rename-icon"] = "thunderbird"
-data["finish-args"] = fin_args
-data["build-options"] = build_opts
-data["cleanup"] = clnup
-data["modules"] = mdles
-json_data = json.dumps(data)
+base = {}
+base["app-id"] = "org.mozilla.Thunderbird"
+base["runtime"] = gnome_runtime
+base["sdk"] = "org.gnome.Sdk"
+base["command"] = "thunderbird"
+base["rename-icon"] = "thunderbird"
+base["finish-args"] = fin_args
+base["build-options"] = build_opts
+base["cleanup"] = clnup
+base["modules"] = mdles
+json_data = json.dumps(base)
 
 # Spit out the JSON
 with open(output_file, 'w') as f:
