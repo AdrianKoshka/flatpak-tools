@@ -144,7 +144,6 @@ tbird["buildsystem"] = "simple"
 tbird["build-options"] = tbirdbopt
 tbird["build-commands"] = tbirdbc
 tbird["sources"] = tbirdsrc
-#tbird["sources"] = tbirdsrc
 mdles.append(tbird)
 
 # Define the basic structure
