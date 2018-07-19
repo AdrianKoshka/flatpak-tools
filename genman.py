@@ -31,7 +31,7 @@ fin_args = [
     "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
     "--talk-name=org.a11y.*",
     "--talk-name=org.freedesktop.Notifications"
-    ]
+]
 
 clnup = [
     "/include",
