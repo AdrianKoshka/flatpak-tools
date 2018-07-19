@@ -2,6 +2,7 @@ import json
 import requests
 import os
 import hashlib
+import sys
 
 
 def hashsrc(url):
@@ -121,10 +122,17 @@ appdata["type"] = "file"
 appdata["path"] = "org.mozilla.Thunderbird.appdata.xml"
 tbirdsrc.append(appdata)
 
+# URL formation
+burl = "https://ftp.mozilla.org/pub/thunderbird/releases/"
+release = sys.argv[1]
+srcdir = "/source/"
+srctar = "thunderbird-" + release + ".source.tar.xz"
+full_url = burl + release + srcdir + srctar
+
 # Thunderbird source tar
 tbtarsrc = {}
 tbtarsrc["type"] = "archive"
-tbtarsrc["url"] = "https://ftp.mozilla.org/pub/thunderbird/releases/52.9.1/source/thunderbird-52.9.1.source.tar.xz"
+tbtarsrc["url"] = full_url
 tbtarsrc["sha256"] = hashsrc(tbtarsrc["url"])
 tbirdsrc.append(tbtarsrc)
 
@@ -151,5 +159,7 @@ data["cleanup"] = clnup
 data["modules"] = mdles
 json_data = json.dumps(data)
 
+output_file = "org.mozilla.Thunderbird.updated.json"
 # Spit out the JSON
-print(json_data)
+with open(output_file, 'w') as f:
+        f.write(json_data)
