@@ -4,6 +4,8 @@ import os
 import hashlib
 import sys
 
+output_file = "org.mozilla.Thunderbird.updated.json"
+gnome_runtime = "3.28"
 
 def hashsrc(url):
     print("Getting " + url)
@@ -12,8 +14,6 @@ def hashsrc(url):
     sha256.update(r.content)
     filechecksum = sha256.hexdigest()
     return(filechecksum)
-
-gnome_runtime = "3.28"
 
 fin_args = [
     "--share=ipc",
@@ -159,7 +159,6 @@ data["cleanup"] = clnup
 data["modules"] = mdles
 json_data = json.dumps(data)
 
-output_file = "org.mozilla.Thunderbird.updated.json"
 # Spit out the JSON
 with open(output_file, 'w') as f:
         f.write(json_data)
