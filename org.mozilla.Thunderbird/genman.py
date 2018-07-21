@@ -6,6 +6,7 @@ import sys
 
 output_file = "org.mozilla.Thunderbird.updated.json"
 gnome_runtime = "3.28"
+release = sys.argv[1]
 
 def hashsrc(url):
     print("Getting " + url)
@@ -89,7 +90,7 @@ mdles.append(icu)
 tbirdbopt = {}
 tbirdbopt["clfags"] = "-fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2"
 tbirdbopt["cxxflags"] = "-fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2"
-tbirdbopt["env"] = {"VERSION": "52.9.1"}
+tbirdbopt["env"] = {"VERSION": release}
 
 # Thunderbird build-commands
 tbirdbc = [
@@ -125,7 +126,6 @@ tbirdsrc.append(appdata)
 
 # URL formation
 burl = "https://ftp.mozilla.org/pub/thunderbird/releases/"
-release = sys.argv[1]
 srcdir = "/source/"
 srctar = "thunderbird-" + release + ".source.tar.xz"
 full_url = burl + release + srcdir + srctar
