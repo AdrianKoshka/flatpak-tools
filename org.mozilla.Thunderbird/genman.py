@@ -4,10 +4,17 @@ import os
 import hashlib
 import sys
 
+# File to output the JSON to
 output_file = "org.mozilla.Thunderbird.updated.json"
+
+# Version of the GNOME runtime to use
 gnome_runtime = "3.28"
+
+# Take the thunderbird release from the first systerm argument
 release = sys.argv[1]
 
+# A function which takes a URL, requests the content, and makes a sha256 hash
+# of it, and then returns said hash
 def hashsrc(url):
     print("Getting " + url)
     r = requests.get(url)
@@ -16,6 +23,7 @@ def hashsrc(url):
     filechecksum = sha256.hexdigest()
     return(filechecksum)
 
+# Define the finish-args
 fin_args = [
     "--share=ipc",
     "--socket=x11",
@@ -34,6 +42,7 @@ fin_args = [
     "--talk-name=org.freedesktop.Notifications"
 ]
 
+# Define the files/directories to cleanup
 clnup = [
     "/include",
     "/lib/pkgconfig",
