@@ -2,16 +2,22 @@ import json
 import requests
 import os
 import hashlib
-import sys
+import argparse
+
+# Setup arguments to be parsed
+parser = argparse.ArgumentParser(description="Auto generates locale config")
+parser.add_argument("-r", "--release", help="Thunderbird release version")
+parser.add_argument("-o", "--output", help="File to write to", default="org.mozilla.Thunderbird.updated.json")
+args = parser.parse_args()
 
 # File to output the JSON to
-output_file = "org.mozilla.Thunderbird.updated.json"
+output_file = args.output
 
 # Version of the GNOME runtime to use
 gnome_runtime = "3.28"
 
-# Take the thunderbird release from the first systerm argument
-release = sys.argv[1]
+# Take the thunderbird release from the '-r' or --release' argument
+release = args.release
 
 # A function which takes a URL, requests the content, and makes a sha256 hash
 # of it, and then returns said hash
