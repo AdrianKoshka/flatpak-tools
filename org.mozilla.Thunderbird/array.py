@@ -4,7 +4,16 @@ import os
 import hashlib
 import sys
 
-locales = ["ar", "ast", "be", "bg", "bn-BD", "br", "ca", "cs", "cy", "da", "de", "dsb", "el", "en-GB", "en-US", "es-AR", "es-ES", "et", "eu", "fr", "fi", "fy-NL," "ga-IE", "gd", "gl", "he", "hr", "hsb", "hu", "hy-AM", "id", "is", "it", "ja", "kab", "ko", "lt", "nb-NO", "nn-NO", "pa-IN", "pl", "pt-BR", "pt-PT", "rm", "ro", "ru", "si", "sk", "sl", "sq", "sr", "sv-SE", "ta-LK", "tr", "uk", "vi", "zh-CN", "zh-TW"]
+# Define locales
+locales = [
+    "ar", "ast", "be", "bg", "bn-BD", "br", "ca", "cs", "cy", "da", "de","dsb", 
+    "el", "en-GB", "en-US", "es-AR", "es-ES", "et", "eu", "fr", "fi", "fy-NL," 
+    "ga-IE", "gd", "gl", "he", "hr", "hsb", "hu", "hy-AM", "id", "is", "it", 
+    "ja", "kab", "ko", "lt", "nb-NO", "nn-NO", "pa-IN", "pl", "pt-BR", "pt-PT",
+    "rm", "ro", "ru", "si", "sk", "sl", "sq", "sr", "sv-SE", "ta-LK", "tr",
+    "uk", "vi", "zh-CN", "zh-TW"
+]
+
 # Download locale extension
 
 bigdata = []
