@@ -2,7 +2,7 @@ import json
 import requests
 import os
 import hashlib
-import sys
+import argparse
 
 # Define locales
 locales = [
@@ -14,14 +14,19 @@ locales = [
     "uk", "vi", "zh-CN", "zh-TW"
 ]
 
-# Download locale extension
+# Setup arguments to be parsed
+parser = argparse.ArgumentParser(description="Auto generates locale config")
+parser.add_argument('-r', '--release', help="Thunderbird release version")
+parser.add_argument("-o", "--output", help="File to write to", default="locales.json")
+args = parser.parse_args()
 
+# Download locale extension
 bigdata = []
-output_file = "locales.json"
+output_file = args.output
 
 for locale in locales:
     burl = 'https://download-origin.cdn.mozilla.net/pub/thunderbird/releases/'
-    tbr = sys.argv[1]
+    tbr = args.release
     xpid = '/linux-x86_64/xpi/'
     fext = '.xpi'
     url = burl + tbr + xpid + locale + fext
