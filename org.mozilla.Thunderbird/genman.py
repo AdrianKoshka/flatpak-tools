@@ -5,7 +5,7 @@ import hashlib
 import argparse
 
 # Setup arguments to be parsed
-parser = argparse.ArgumentParser(description="Auto generates locale config")
+parser = argparse.ArgumentParser(description="Auto generates Thunderbirs' flatpak manifest")
 parser.add_argument("-r", "--release", help="Thunderbird release version")
 parser.add_argument("-o", "--output", help="File to write to", default="org.mozilla.Thunderbird.updated.json")
 args = parser.parse_args()
